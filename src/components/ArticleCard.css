@@ -1,0 +1,114 @@
+/* ---------- Card (desktop: 730 × 280) ---------- */
+.card {
+  /* Positioning context for the mobile share bar */
+  position: relative;
+  display: grid;
+  grid-template-columns: 285px 1fr;
+  align-items: center;
+  column-gap: var(--spacing-500);
+  width: 100%;
+  max-width: 730px;
+  min-height: 280px;
+  padding-right: var(--spacing-500);
+  border-radius: var(--radius-card);
+  background-color: var(--color-white);
+  box-shadow: 0 40px 40px -10px var(--color-shadow);
+}
+
+.card__image {
+  align-self: stretch;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  border-radius: var(--radius-card) 0 0 var(--radius-card);
+}
+
+.card__content {
+  display: grid;
+  row-gap: var(--spacing-300);
+  min-width: 0;
+  padding-block: 30px;
+}
+
+.card__title {
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.3;
+  letter-spacing: 0.25px;
+  color: var(--color-very-dark-grayish-blue);
+}
+
+.card__footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: var(--spacing-200);
+}
+
+/* ---------- Author ---------- */
+.author {
+  display: grid;
+  grid-template-columns: 40px auto;
+  justify-content: start;
+  align-items: center;
+  column-gap: var(--spacing-200);
+}
+
+.author__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.author__name {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-very-dark-grayish-blue);
+}
+
+.author__date {
+  display: block;
+  color: var(--color-grayish-blue);
+}
+
+/* ---------- Tablet (608 × 346) ---------- */
+@media (max-width: 1023px) {
+  .card {
+    grid-template-columns: 229px 1fr;
+    column-gap: var(--spacing-400);
+    max-width: 608px;
+    min-height: 346px;
+    padding-right: 36px;
+  }
+
+  .card__content {
+    padding-block: 41px;
+  }
+}
+
+/* ---------- Mobile (327 wide) ---------- */
+@media (max-width: 767px) {
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px auto;
+    align-items: stretch;
+    row-gap: var(--spacing-400);
+    max-width: 327px;
+    min-height: 0;
+    padding: 0 0 18px;
+  }
+
+  .card__image {
+    object-position: center top;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+  }
+
+  .card__content {
+    padding: 0 30px;
+  }
+
+  .card__footer {
+    /* 48px between the text block and the footer instead of the 24px row gap */
+    margin-top: var(--spacing-300);
+  }
+}

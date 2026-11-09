@@ -1,0 +1,103 @@
+/* ---------- Share button (32 × 32) ---------- */
+.share {
+  position: relative;
+}
+
+.share__button {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--color-light-grayish-blue);
+  color: var(--color-desaturated-dark-blue);
+  cursor: pointer;
+}
+
+/* The share icon SVG has a hard-coded fill; let it follow the button's text color. */
+.share__icon path {
+  fill: currentColor;
+}
+
+/* Hover / active state from the Figma "Share Button" component */
+.share__button:hover,
+.share__button:focus-visible,
+.share__button[aria-expanded='true'] {
+  background-color: var(--color-desaturated-dark-blue);
+  color: var(--color-white);
+}
+
+/* ---------- Share toast (desktop + tablet: 248 × 55 with a 24 × 12 arrow) ---------- */
+.share__menu {
+  position: absolute;
+  bottom: calc(100% + 30px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--spacing-300);
+  width: 248px;
+  height: 55px;
+  border-radius: var(--radius-card);
+  background-color: var(--color-very-dark-grayish-blue);
+  filter: drop-shadow(0 10px 10px var(--color-shadow));
+}
+
+.share__menu::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 12px solid var(--color-very-dark-grayish-blue);
+  border-inline: 12px solid transparent;
+}
+
+.share__label {
+  letter-spacing: 0.25em; /* 25% */
+  text-transform: uppercase;
+  color: var(--color-grayish-blue);
+}
+
+.share__links {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  column-gap: var(--spacing-200);
+}
+
+.social-link {
+  display: block;
+}
+
+/* ---------- Mobile: the toast becomes a bar across the bottom of the card ---------- */
+@media (max-width: 767px) {
+  /* Let the menu position itself against the card instead of the button */
+  .share {
+    position: static;
+  }
+
+  .share__menu {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    justify-content: start;
+    width: auto;
+    height: 76px;
+    padding-inline: 30px;
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
+    filter: none;
+  }
+
+  .share__menu::after {
+    content: none;
+  }
+}

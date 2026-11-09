@@ -28,7 +28,7 @@ Your users should be able to:
 
 ### Links
 
-- Live Site URL: [github pages](https://GerardoCianciulli.github.io/article-preview-component/)
+- Live Site URL: [github pages](https://GerardoCianciulli.github.io/Article-preview-component/)
 
 ## My process
 
